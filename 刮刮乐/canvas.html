@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas"></canvas>
+    <script>
+        var myCanvas = document.getElementById('myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        var img = new Image();
+        img.src = './res/1.jpg'
+        img.onload = function () {
+            ctx.drawImage(img, 0, 0, 500, 500)
+            var data = myCanvas.toDataURL(img)
+            // console.log(data)
+            var oImg = new Image()
+            var data = myCanvas.toDataURL(img)
+            console.log(data)
+            oImg.src = data
+            document.body.appendChild(oImg)
+        }
+    </script>
+</body>
+</html>
